@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  img: MyString
+  title: MyString
+  techStack: MyString
+  description: MyText
+  live_link: MyString
+  github_link: MyString
+  howBuiltAbbr: MyString
+  howBuiltDesc: MyString
+
+two:
+  img: MyString
+  title: MyString
+  techStack: MyString
+  description: MyText
+  live_link: MyString
+  github_link: MyString
+  howBuiltAbbr: MyString
+  howBuiltDesc: MyString
