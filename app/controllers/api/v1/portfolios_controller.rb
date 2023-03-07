@@ -19,6 +19,16 @@ class Api::V1::PortfoliosController < ApplicationController
     end
   end
 
+  def show
+    @portfolio = Portfolio.find(params[:id])
+
+    if @portfolio
+      render json: { message: "Portfolio exists!", data: @portfolio }, status: :ok
+    else
+      render json: { message: "Portfolio could not be found" }, status: :bad_request
+    end
+  end
+
   private
 
   def portfolios_params
