@@ -43,6 +43,17 @@ class Api::V1::PortfoliosController < ApplicationController
     end
   end
 
+  # Update details for a specific portfolio
+  def update
+    @portfolio = Portfolio.find(params[:id])
+
+    if @portfolio.update!(portfolios_params)
+      render json: { message: "Portolio was updated succesfully", data: @portfolio }, status: :ok
+    else
+      render json: { message: "Portfolio cannot be updated" }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def portfolios_params
