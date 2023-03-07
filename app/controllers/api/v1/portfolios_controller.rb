@@ -1,4 +1,5 @@
 class Api::V1::PortfoliosController < ApplicationController
+  # List all available portfolios
   def index
     @portfolios = Portfolio.all
 
@@ -9,6 +10,7 @@ class Api::V1::PortfoliosController < ApplicationController
     end
   end
 
+  # Create a portfolio
   def create
     portfolio = Portfolio.new(portfolios_params)
 
@@ -19,6 +21,7 @@ class Api::V1::PortfoliosController < ApplicationController
     end
   end
 
+  # Show more details for a specific portfolio
   def show
     @portfolio = Portfolio.find(params[:id])
 
@@ -26,6 +29,17 @@ class Api::V1::PortfoliosController < ApplicationController
       render json: { message: "Portfolio exists!", data: @portfolio }, status: :ok
     else
       render json: { message: "Portfolio could not be found" }, status: :bad_request
+    end
+  end
+
+  # Delete a specific portfolio
+  def destroy
+    @portfolio = Portfolio.find(params[:id])
+
+    if @portfolio.destroy!
+      render json: { message: "Portfolio was deleted succesfully" }, status: :ok
+    else
+      render json: { message: "Portfolio does not exist" }, status: :bad_request
     end
   end
 
