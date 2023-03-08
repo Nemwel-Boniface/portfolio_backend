@@ -40,3 +40,36 @@ portfolios = Portfolio.create([
     howBuiltDesc: 'This is a project that was done as a solo',
   }
 ])
+
+blogs = Blog.create([
+  {
+    id: 1,
+    img: "img",
+    dateWritten: '11 April 2022',
+    abbreviation: '',
+    abbreviated_name: 'General',
+    article_title: 'Self -Taught VS Boot-camp route',
+    article_description: 'If you&apos;ve always wanted to venture into the tech industry I am sure you have at least once debated amongst yourself on which path will guarantee you the desired results.',
+    article_link: 'https://nemwelb.medium.com/self-taught-vs-boot-camp-route-e44c98ed06e1',
+  },
+  {
+    id: 2,
+    img: "img",
+    dateWritten: '21 June 2022',
+    abbreviation: 'Data structures and Algorithms',
+    abbreviated_name: 'DSA',
+    article_title: 'Introduction to Data structures and algorithms',
+    article_description: 'Data structures and algorithms. Sounds like an enigma, right? Luckily for you, my reader, today, I aim to debunk what these two mean by giving you a beginner-friendly overview of each and end it all with a simple example.',
+    article_link: 'https://dev.to/nemwelboniface/data-structures-and-algorithms-277f',
+  },
+  {
+    id: 3,
+    img: "img",
+    dateWritten: '22 August 2022',
+    abbreviation: 'Application Programming interface',
+    abbreviated_name: 'API',
+    article_title: 'How to Create an API using Ruby on Rails 7 and PostgreSQL database',
+    article_description: 'If you are new to programming like me I am sure that each time you come across this term you think of it as a very complex enigma to decipher.',
+    article_link: 'https://dev.to/nemwelboniface/api-with-rails-7-ngh',
+  },
+])
