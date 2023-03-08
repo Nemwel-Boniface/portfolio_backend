@@ -1,11 +1,11 @@
 class Api::V1::BlogsController < ApplicationController
   # Show all the blogs available
   def index
-    @blogs = Blog.all
-    if @blogs
-      render json: { status: "SUCCESS", message: "Blogs available", data: @blogs }, status: :ok
+    blogs = Blog.all
+    if blogs
+      render json: { status: "SUCCESS", message: "Blogs available", data: blogs }, status: :ok
     else
-      render json: @blogs.errors, status: :bad_request
+      render json: blogs.errors, status: :bad_request
     end
   end
 
@@ -22,12 +22,12 @@ class Api::V1::BlogsController < ApplicationController
 
   # Show details for a specific blog
   def show
-    @blog = Blog.find(params[:id])
+    blog = Blog.find(params[:id])
 
-    if @blog
-      render json: { message: "Blog exists!", data: @blog }, status: :ok
+    if blog
+      render json: { message: "Blog exists!", data: blog }, status: :ok
     else
-      render json: @blog.errors, status: :bad_request
+      render json: { message: "Blog could not be found" }, status: :bad_request
     end
   end
 
@@ -38,7 +38,18 @@ class Api::V1::BlogsController < ApplicationController
     if blog.update!(blogs_params)
       render json: { message: "Blog was updated succesfully", data: blog }, status: :ok
     else
-      render json: blog.errors, status: :unprocessable_entity
+      render json: { message: "Blog cannot be updated" }, status: :unprocessable_entity
+    end
+  end
+
+  # Delete a specific blog
+  def destroy
+    blog = Blog.find(params[:id])
+
+    if blog.destroy!
+      render json: { message: "Blog was deleted succesfully" }, status: :ok
+    else
+      render json: { message: "Blog does not exist" }, status: :bad_request
     end
   end
 
