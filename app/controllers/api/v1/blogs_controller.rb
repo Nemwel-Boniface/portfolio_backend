@@ -1,4 +1,5 @@
 class Api::V1::BlogsController < ApplicationController
+  # Show all the blogs available
   def index
     @blogs = Blog.all
     if @blogs
@@ -8,11 +9,34 @@ class Api::V1::BlogsController < ApplicationController
     end
   end
 
+  # Create a new blog
   def create
     blog = Blog.new(blogs_params)
 
     if blog.save
       render json: { status: "SUCCESS", message: "Blog created succesfully", data: blog }, status: :created
+    else
+      render json: blog.errors, status: :unprocessable_entity
+    end
+  end
+
+  # Show details for a specific blog
+  def show
+    @blog = Blog.find(params[:id])
+
+    if @blog
+      render json: { message: "Blog exists!", data: @blog }, status: :ok
+    else
+      render json: @blog.errors, status: :bad_request
+    end
+  end
+
+  # Update the details for a specific blog
+  def update
+    blog = Blog.find(params[:id])
+
+    if blog.update!(blogs_params)
+      render json: { message: "Blog was updated succesfully", data: blog }, status: :ok
     else
       render json: blog.errors, status: :unprocessable_entity
     end
