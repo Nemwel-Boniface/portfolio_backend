@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_01_190733) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_09_172623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_01_190733) do
     t.string "github_link"
     t.string "howBuiltAbbr"
     t.string "howBuiltDesc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "testimonials", force: :cascade do |t|
+    t.text "testimonial_desc"
+    t.string "testimonial_name"
+    t.string "testimonial_occupation"
+    t.string "testimonial_image"
+    t.string "testimonial_link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

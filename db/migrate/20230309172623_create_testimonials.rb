@@ -5,6 +5,7 @@ class CreateTestimonials < ActiveRecord::Migration[7.0]
       t.string :testimonial_name
       t.string :testimonial_occupation
       t.string :testimonial_image
+      t.string :testimonial_link
 
       t.timestamps
     end
