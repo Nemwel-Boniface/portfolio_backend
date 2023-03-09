@@ -73,3 +73,30 @@ blogs = Blog.create([
     article_link: 'https://dev.to/nemwelboniface/api-with-rails-7-ngh',
   },
 ])
+
+testimonials = Testimonial.create([
+  {
+    id: 1,
+    testimonial_name: "Asha Vijayan",
+    testimonial_occupation: "Software developer",
+    testimonial_image: "img",
+    testimonial_desc: "I had the pleasure of working with Nemwel on some projects,",
+    testimonial_link: "To be added",
+  },
+  {
+    id: 2,
+    testimonial_name: "Tufahel Ahmed",
+    testimonial_occupation: "Full-Stack web developer",
+    testimonial_image: "img",
+    testimonial_desc: "I had the pleasure of working with Nemwel on some projects,",
+    testimonial_link: "To be added",
+  },
+  {
+    id: 3,
+    testimonial_name: "Soufiane Boursen",
+    testimonial_occupation: "Software Engineer",
+    testimonial_image: "img",
+    testimonial_desc: "I had the pleasure of working with Nemwel on some projects,",
+    testimonial_link: "To be added",
+  },
+])
