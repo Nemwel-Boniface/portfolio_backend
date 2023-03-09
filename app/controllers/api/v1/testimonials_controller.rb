@@ -20,4 +20,21 @@ class Api::V1::TestimonialsController < ApplicationController
       render json: { message: "Testimonial could not be found" }, status: :bad_request
     end
   end
+
+  # Create a testimonial
+  def create
+    testimonial = Testimonial.new(testimonial_params)
+
+    if testimonial.save
+      render json: { status: 'SUCCESS', message: 'Testimonial was created succesfully', data: testimonial }, status: :created
+    else
+      render json: testimonial.errors, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def testimonial_params
+    params.require(:testimonial).permit(:testimonial_desc, :testimonial_name, :testimonial_occupation, :testimonial_image, :testimonial_link)
+  end
 end
