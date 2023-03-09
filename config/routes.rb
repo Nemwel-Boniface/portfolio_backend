@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :portfolios
       resources :blogs
+      resources :testimonials
     end
   end
 end
