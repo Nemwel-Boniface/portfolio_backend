@@ -32,6 +32,28 @@ class Api::V1::TestimonialsController < ApplicationController
     end
   end
 
+  # Update details for a specific testimonial
+  def update
+    testimonial = Testimonial.find(params[:id])
+
+    if testimonial.update!(testimonial_params)
+      render json: { message: 'Testimonial was updated succesfully', data: testimonial }, status: :ok
+    else
+      render json: { message: 'Testimonial cannot be updated' }, status: :unprocessable_entity
+    end
+  end
+
+  # Delete a specific testimonial
+  def destroy
+    testimonial = Testimonial.find(params[:id])
+
+    if testimonial.destroy!
+      render json: { message: 'Testimonial was deleted succesfully'}, status: :ok
+    else
+      render json: { message: 'Testimonial does not exist!' }, status: :bad_request
+    end
+  end
+
   private
 
   def testimonial_params
