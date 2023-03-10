@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.0'
 
+# Rack cors
+gem 'rack-cors'
+
 # Rubocop for Ruby linter checks
 gem 'rubocop', '>= 1.0', '< 2.0'
 
