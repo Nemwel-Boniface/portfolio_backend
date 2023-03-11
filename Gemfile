@@ -6,6 +6,12 @@ ruby '3.1.0'
 # Rack cors
 gem 'rack-cors'
 
+# Rspec rails
+gem 'rspec-rails' # ignore if already set up in project
+
+# rswag gem for documentation
+gem 'rswag'
+
 # Rubocop for Ruby linter checks
 gem 'rubocop', '>= 1.0', '< 2.0'
 
