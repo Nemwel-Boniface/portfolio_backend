@@ -7,6 +7,21 @@ RSpec.describe 'api/v1/blogs', type: :request do
     get('list blogs') do
       response(200, 'successful') do
 
+        consumes 'application/json'        
+        parameter name: :car, in: :body, schema: {
+          type: :object,
+          properties: {
+            img: { type: :string },
+            dateWritten: { type: :string },
+            abbreviation: { type: :string },
+            abbreviated_name: { type: :string },
+            article_title: { type: :string },
+            article_description: { type: :string },
+            article_link: { type: :string }
+          },          
+          required: %w[img dateWritten article_link article_description article_title abbreviated_name abbreviation]
+        }
+
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {

@@ -7,9 +7,38 @@ paths:
   "/api/v1/blogs":
     get:
       summary: list blogs
+      parameters: []
       responses:
         '200':
           description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                img:
+                  type: string
+                dateWritten:
+                  type: string
+                abbreviation:
+                  type: string
+                abbreviated_name:
+                  type: string
+                article_title:
+                  type: string
+                article_description:
+                  type: string
+                article_link:
+                  type: string
+              required:
+              - img
+              - dateWritten
+              - article_link
+              - article_description
+              - article_title
+              - abbreviated_name
+              - abbreviation
     post:
       summary: create blog
       responses:
@@ -125,4 +154,4 @@ servers:
 - url: https://{defaultHost}
   variables:
     defaultHost:
-      default: www.example.com
+      default: 127.0.0.1:3000/
