@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  testimonial_desc: MyText
+  testimonial_name: MyString
+  testimonial_occupation: MyString
+  testimonial_image: MyString
+
+two:
+  testimonial_desc: MyText
+  testimonial_name: MyString
+  testimonial_occupation: MyString
+  testimonial_image: MyString
