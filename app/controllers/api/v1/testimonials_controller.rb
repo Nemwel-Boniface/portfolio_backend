@@ -4,7 +4,8 @@ class Api::V1::TestimonialsController < ApplicationController
     testimonials = Testimonial.all
 
     if testimonials
-      render json: { status: "SUCCESS", message: "Testimonials retrieved succesfully!", data: testimonials }, status: :ok
+      render json: { status: 'SUCCESS', message: 'Testimonials retrieved succesfully!', data: testimonials },
+             status: :ok
     else
       render json: testimonials.errors, status: :bad_request
     end
@@ -15,9 +16,9 @@ class Api::V1::TestimonialsController < ApplicationController
     testimonial = Testimonial.find(params[:id])
 
     if testimonial
-      render json: { message: "Testimonial was retrieved succesfully", data: testimonial }, status: :ok
+      render json: { message: 'Testimonial was retrieved succesfully', data: testimonial }, status: :ok
     else
-      render json: { message: "Testimonial could not be found" }, status: :bad_request
+      render json: { message: 'Testimonial could not be found' }, status: :bad_request
     end
   end
 
@@ -26,7 +27,8 @@ class Api::V1::TestimonialsController < ApplicationController
     testimonial = Testimonial.new(testimonial_params)
 
     if testimonial.save
-      render json: { status: 'SUCCESS', message: 'Testimonial was created succesfully', data: testimonial }, status: :created
+      render json: { status: 'SUCCESS', message: 'Testimonial was created succesfully', data: testimonial },
+             status: :created
     else
       render json: testimonial.errors, status: :unprocessable_entity
     end
@@ -48,7 +50,7 @@ class Api::V1::TestimonialsController < ApplicationController
     testimonial = Testimonial.find(params[:id])
 
     if testimonial.destroy!
-      render json: { message: 'Testimonial was deleted succesfully'}, status: :ok
+      render json: { message: 'Testimonial was deleted succesfully' }, status: :ok
     else
       render json: { message: 'Testimonial does not exist!' }, status: :bad_request
     end
@@ -57,6 +59,7 @@ class Api::V1::TestimonialsController < ApplicationController
   private
 
   def testimonial_params
-    params.require(:testimonial).permit(:testimonial_desc, :testimonial_name, :testimonial_occupation, :testimonial_image, :testimonial_link)
+    params.require(:testimonial).permit(:testimonial_desc, :testimonial_name, :testimonial_occupation,
+                                        :testimonial_image, :testimonial_link)
   end
 end

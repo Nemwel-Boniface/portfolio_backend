@@ -1,13 +1,10 @@
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/blogs', type: :request do
-
   path '/api/v1/blogs' do
-
     get('list blogs') do
       response(200, 'successful') do
-
-        consumes 'application/json'        
+        consumes 'application/json'
         parameter name: :car, in: :body, schema: {
           type: :object,
           properties: {
@@ -18,7 +15,7 @@ RSpec.describe 'api/v1/blogs', type: :request do
             article_title: { type: :string },
             article_description: { type: :string },
             article_link: { type: :string }
-          },          
+          },
           required: %w[img dateWritten article_link article_description article_title abbreviated_name abbreviation]
         }
 
@@ -35,7 +32,6 @@ RSpec.describe 'api/v1/blogs', type: :request do
 
     post('create blog') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
