@@ -1,0 +1,157 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/blogs":
+    get:
+      summary: list blogs
+      parameters: []
+      responses:
+        '200':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                img:
+                  type: string
+                dateWritten:
+                  type: string
+                abbreviation:
+                  type: string
+                abbreviated_name:
+                  type: string
+                article_title:
+                  type: string
+                article_description:
+                  type: string
+                article_link:
+                  type: string
+              required:
+              - img
+              - dateWritten
+              - article_link
+              - article_description
+              - article_title
+              - abbreviated_name
+              - abbreviation
+    post:
+      summary: create blog
+      responses:
+        '200':
+          description: successful
+  "/api/v1/blogs/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show blog
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update blog
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update blog
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete blog
+      responses:
+        '200':
+          description: successful
+  "/api/v1/portfolios":
+    get:
+      summary: list portfolios
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create portfolio
+      responses:
+        '200':
+          description: successful
+  "/api/v1/portfolios/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show portfolio
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update portfolio
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update portfolio
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete portfolio
+      responses:
+        '200':
+          description: successful
+  "/api/v1/testimonials":
+    get:
+      summary: list testimonials
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create testimonial
+      responses:
+        '200':
+          description: successful
+  "/api/v1/testimonials/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show testimonial
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update testimonial
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update testimonial
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete testimonial
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: 127.0.0.1:3000/
